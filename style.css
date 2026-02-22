@@ -31,14 +31,15 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow-y: auto; /* Changed to auto for scrolling */
     position: relative;
     transition: background 0.5s ease, color 0.5s ease;
+    padding: 2rem 0;
 }
 
 body::before {
     content: "";
-    position: absolute;
+    position: fixed; /* Fixed background */
     top: 0;
     left: 0;
     width: 100%;
@@ -48,9 +49,10 @@ body::before {
 }
 
 .theme-toggle {
-    position: absolute;
+    position: fixed; /* Fixed button */
     top: 20px;
     right: 20px;
+    z-index: 100;
 }
 
 #theme-btn {
@@ -73,6 +75,9 @@ body::before {
     box-shadow: 0 15px 35px var(--shadow-color);
     border: 1px solid var(--container-border);
     transition: background 0.5s ease, box-shadow 0.5s ease;
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 h1 {
@@ -142,6 +147,13 @@ body.light-mode #submit-btn {
 #submit-btn:hover {
     opacity: 0.9;
     transform: translateY(-2px);
+}
+
+.comments-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--container-border);
+    text-align: left;
 }
 
 h2 {
